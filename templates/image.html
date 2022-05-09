@@ -1,0 +1,116 @@
+<html>
+
+{% load static %}
+
+<head>
+    <title>Page Title</title>
+
+</head>
+
+<input name="photo" type="file" />
+
+
+
+<form action="img" name="myForm" id="myForm" method="post"> Document Uplaod:
+
+    <input type="hidden" name="url" id="url">
+    <button type="button" id="demo">Upload</button><br><br>
+
+
+
+</form>
+
+
+</body>
+
+
+
+
+
+
+<script src="{% static 'assets/js/zepto.min.js' %}"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    $().ready(function() {
+
+
+        $('input[name=photo]').change(function(e) {
+            var file = e.target.files[0];
+
+
+
+            // CANVAS RESIZING
+            canvasResize(file, {
+                width: 300,
+                height: 300,
+                crop: false,
+                quality: 80,
+                rotate: 0,
+                callback: function(data, width, height) {
+
+
+                    var img = new Image();
+                    img.onload = function() {
+
+                        $(this).css({
+                            'margin': '10px auto',
+                            'width': width,
+                            'height': height
+                        }).appendTo('#area div');
+
+                    };
+                    $(img).attr('src', data);
+
+                    var fd = new FormData();
+                    // Add file data
+                    var f = canvasResize('dataURLtoBlob', data);
+                    f.name = file.name;
+
+                    var config = {
+                        apiKey: "AIzaSyAPBXBYOuClJop3F3aDEOhfF1kZjhUxGFA",
+                        authDomain: "ghurefiribangladesh-e7ef2.firebaseapp.com",
+                        databaseURL: "https://ghurefiribangladesh-e7ef2.firebaseio.com",
+                        projectId: "ghurefiribangladesh-e7ef2",
+                        storageBucket: "ghurefiribangladesh-e7ef2.appspot.com",
+                        messagingSenderId: "198487718440",
+                        appId: "1:198487718440:web:ab16558cabb12902c7931d",
+                        measurementId: "G-B8PY09CQDG"
+                    };
+                    firebase.initializeApp(config);
+                    var storage = firebase.storage();
+
+                    document.getElementById("demo").onclick = function() {
+                        myFunction()
+                    };
+
+                    function myFunction() {
+
+                        var storageRef = storage.ref();
+                        var thisref = storageRef.child("profileImages").child(f.name).put(f);
+                        thisref.on('state_changed', function(snapshot) {
+                                console.log("file uplaoded succesfully");
+                            },
+                            function(error) {},
+                            function() {
+
+                                var downloadURL = thisref.snapshot.downloadURL;
+                                console.log("got url");
+                                document.getElementById("url").value = downloadURL;
+                                alert("file uploaded successfully");
+                                document.myForm.submit();
+                            });
+
+                    };
+
+
+                }
+            });
+
+        });
+    });
+</script>
+<script src="{% static 'assets/js/binaryajax.js' %}"></script>
+<script src="{% static 'assets/js/exif.js' %}"></script>
+<script src="{% static 'assets/js/canvasResize.js' %}"></script>
+
+</html>

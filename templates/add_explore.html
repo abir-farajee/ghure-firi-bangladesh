@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<!-- Mirrored from spotlisting.itech-theme.com/user/addlisting.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Dec 2020 12:57:19 GMT -->
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/images/icon.png' %}">
+
+
+    <title>GhureFiri Bangladesh </title>
+
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/flaticon.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/nice-select.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/odometer-theme-default.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slick-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slicknav.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/jquery-ui.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/jquery.fancybox.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/dropify.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <div class="page-loader">
+            <div class="page-loader-inner">
+                <div class="inner"></div>
+            </div>
+        </div>
+
+        <header>
+            <div class="header-area" id="sticky-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-2 col-md-6 col-5">
+                            <div class="logo">
+                                <a href="/"><img src="{% static 'assets/images/logo/logo.png' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8 d-none d-lg-block">
+                            <div class="main-menu">
+                                <nav class="nav_mobile_menu">
+                                    <ul>
+                                        <li class="active"><a href="../main">Home</a></li>
+
+                                        <li class="active"><a style="color: #51fc8a;" href="../account/profile">Welcome
+                                                &nbsp;{{name}}</a></li>
+
+                                        <li><a class="theme-btn" href="../account/logout">LOGOUT</a></li>
+
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="col-12 d-block d-lg-none col-2">
+                            <div class="mobile_menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcumb-wrap">
+                            <h2>Add New Explore</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="add-listing-area section-padding">
+            <div class="container">
+                <div class="add-listing-wrap">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="tab-area">
+                                <div class="col-xs-12 ">
+                                    <form id="myForm" name="myForm" action="addexplore" method="post">
+                                        {% csrf_token %}
+                                        <div class="tab-content" id="nav-tabContent">
+                                            <div class="tab-pane fade active show" id="nav-general" role="tabpanel" aria-labelledby="nav-general-tab">
+                                                <div class="addlisting-form">
+                                                    <h2>General Information</h2>
+                                                    <div class="row">
+
+                                                        <div class="col-lg-12">
+                                                            <div class="addlisting-form">
+                                                                <div class="drop-item">
+                                                                    <div id="file-upload" class="section">
+                                                                        <label>Explore's Picture</label>
+
+                                                                        <input name="photo" type="file" class="dropify" data-default-file="" />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+
+                                                        <div class="col-lg-12">
+
+                                                            <input type="text" name="post_name" class="form-control" placeholder="Explore Name">
+                                                        </div>
+
+
+                                                        <div class="col-lg-12">
+
+                                                            <textarea cols="30" rows="10" name="post_text" placeholder="Enter your Explore Description here"></textarea>
+                                                        </div>
+                                                        <input type="hidden" name="post_img" id="url">
+
+                                                        <div class="submit-btn col-12">
+                                                       
+                                                            <button type="button" id="demo" class="theme-btn">Post</button>
+                                                        </div>
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                </div>
+                            </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <footer class="site-footer">
+            <div class="upper-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-lg-4 col-md-3 col-sm-12 col-12">
+                            <div class="widget about-widget">
+                                <div class="logo widget-title">
+                                    <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="blog"></a>
+                                </div>
+                                <p>A Tour Management System to make your tour more enjoyable</p>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-3 col-sm-12 col-12">
+                            <div class="widget link-widget">
+                                <div class="widget-title">
+                                    <h3>Quick Links</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+
+                                    <li><a href="blog.html">Explore</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col col-lg-4 col-lg-offset-1 col-md-3 col-sm-12 col-12">
+                            <div class="widget market-widget service-link-widget">
+                                <div class="widget-title">
+                                    <h3>Contact </h3>
+                                </div>
+                                <div class="contact-ft">
+                                    <ul>
+                                        <li>Uttara, Dhaka-1230</li>
+                                        <li><a href="https://spotlisting.itech-theme.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58c8b838aa5928087968c9180cb868a88">ghurefiribangladesh@gmail.com</a></li>
+                                        <li>+88 01622124013</li>
+                                    </ul>
+                                </div>
+                                <ul class="socilal-link">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xl-12">
+                            <p class="copyright"> GhureFiri Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+
+<script src="{% static 'assets/js/zepto.min.js' %}"></script>
+<script src="https://www.gstatic.com/firebasejs/3.7.4/firebase.js"></script>
+<script>
+    $().ready(function() {
+
+
+        $('input[name=photo]').change(function(e) {
+            var file = e.target.files[0];
+
+
+
+            // CANVAS RESIZING
+            canvasResize(file, {
+                width: 200,
+                height: 200,
+                crop: false,
+                quality: 90,
+                rotate: 0,
+                callback: function(data, width, height) {
+
+
+                    var img = new Image();
+                    img.onload = function() {
+
+                        $(this).css({
+                            'margin': '10px auto',
+                            'width': width,
+                            'height': height
+                        }).appendTo('#area div');
+
+                    };
+                    $(img).attr('src', data);
+
+                    var fd = new FormData();
+                    // Add file data
+                    var f = canvasResize('dataURLtoBlob', data);
+                    f.name = file.name;
+
+                    var config = {
+                        apiKey: "AIzaSyAPBXBYOuClJop3F3aDEOhfF1kZjhUxGFA",
+                        authDomain: "ghurefiribangladesh-e7ef2.firebaseapp.com",
+                        databaseURL: "https://ghurefiribangladesh-e7ef2.firebaseio.com",
+                        projectId: "ghurefiribangladesh-e7ef2",
+                        storageBucket: "ghurefiribangladesh-e7ef2.appspot.com",
+                        messagingSenderId: "198487718440",
+                        appId: "1:198487718440:web:ab16558cabb12902c7931d",
+                        measurementId: "G-B8PY09CQDG"
+                    };
+                    firebase.initializeApp(config);
+                    var storage = firebase.storage();
+
+                    document.getElementById("demo").onclick = function() {
+                        myFunction()
+                    };
+
+                    function myFunction() {
+
+                        var storageRef = storage.ref();
+                        var thisref = storageRef.child("blog_images").child(f.name).put(f);
+                        thisref.on('state_changed', function(snapshot) {
+                                console.log("file uplaoded succesfully");
+                            },
+                            function(error) {},
+                            function() {
+
+                                var downloadURL = thisref.snapshot.downloadURL;
+                                console.log("got url");
+                                document.getElementById("url").value = downloadURL;
+                                alert("file uploaded successfully");
+                                document.myForm.submit();
+                            });
+
+                    };
+
+
+                }
+            });
+
+        });
+    });
+</script>
+<script src="{% static 'assets/js/binaryajax.js' %}"></script>
+<script src="{% static 'assets/js/exif.js' %}"></script>
+<script src="{% static 'assets/js/canvasResize.js' %}"></script>
+
+    <script src="{% static 'assets/js/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}" type="text/javascript">
+    </script>
+
+    <script src="{% static 'assets/js/jquery-plugin-collection.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/jquery.slicknav.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/jquery-ui.min.js' %}" type="text/javascript">
+    </script>
+    <script src="{% static 'assets/js/dropify.js' %}" type="text/javascript">
+    </script>
+    <script src="{% static 'assets/js/form-file-uploads.js' %}" type="text/javascript"></script>
+
+    <script src="{% static 'assets/js/map.html' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/richmarker.js' %}" type="text/javascript">
+    </script>
+
+    <script src="{% static 'assets/js/script.js' %}" type="text/javascript">
+    </script>
+    <script src="{% static 'assets/js/map-active.js' %}" type="text/javascript">
+    </script>
+    <script src="{% static 'assets/js//rocket-loader.min.js' %}" type="text/javascript"></script>
+</body>
+
+<!-- Mirrored from spotlisting.itech-theme.com/user/addlisting.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 15 Dec 2020 12:57:23 GMT -->
+
+</html>

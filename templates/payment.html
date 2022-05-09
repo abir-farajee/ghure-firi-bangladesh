@@ -1,0 +1,332 @@
+{% if msg %}
+<script>
+    alert('{{msg}}')
+</script>
+{% endif %} {% if messg %}
+<script>
+    alert('{{ messg }}');
+</script>
+{% endif %}
+
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/images/icon.png' %}">
+
+    <title>GhureFiri Bangladesh</title>
+
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/flaticon.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/nice-select.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/odometer-theme-default.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slick-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slicknav.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/jquery.fancybox.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/jquery-ui.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+
+
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <div class="page-loader">
+            <div class="page-loader-inner">
+                <div class="inner"></div>
+            </div>
+        </div>
+
+
+        <header>
+            <div class="header-area" id="sticky-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-2 col-md-6 col-5">
+                            <div class="logo">
+                                <a href="/"><img src="{% static 'assets/images/logo/logo.png' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8 d-none d-lg-block">
+                            <div class="main-menu">
+                                <nav class="nav_mobile_menu">
+                                    <ul>
+                                           <li class="active"><a style="color: #51fc8a;" href="#">{{name}}</a>
+                                        <ul class="submenu">
+                                        
+                                        <li ><a  href="../account/profile">My Profile</a></li>
+                                        <li><a href="../account/mybooking">My Bookings</a></li>
+                                        </ul>
+                                        </li>
+                                        <li class="active"><a href="../explore/explore">Explore</a></li>
+                                        <li class="active"><a href="../package/allpackage">Packages</a></li>
+                                        <li class="active"><a href="../tour/all">Tour</a></li>
+                                        <li><a class="theme-btn" href="../account/logout">LOGOUT</a> </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="col-12 d-block d-lg-none col-2">
+                            <div class="mobile_menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcumb-wrap">
+                            <h2>Tour Details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-area section-padding">
+            <div class="container">
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-12">
+
+
+                        <div class="pricing-item" style="background: #0d1d35; border-radius: 10px;">
+                            <div class="price-top">
+                                <h3 style="background-color:#ffb619; padding: 10px; border-radius: 10px;">Booking Information</h3>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-lg-3 col-md-6 col-12">
+                                    <div class="price-bottom" style="background: #f0f2f5; padding: 10px; border-radius: 10px;">
+                                        <h2> {{Place_Name}}</h2>
+                                        <ul>
+                                            <li>
+                                                <h5><strong>Hotel:</strong>&nbsp{{Hotel_Name}} </h5>
+                                            </li>
+
+                                            <li>
+                                                <h5><strong>Transportation:</strong> &nbsp{{Transportaion_Company}} <span>({{Transportation_Type}})</span></h5>
+                                            </li>
+
+                                        </ul>
+                                    </div>
+                                </div>
+
+                                <div class="col-lg-9 col-md-6 col-12">
+
+                                    <div class="row">
+
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="price-bottom" style="background: #f0f2f5; padding: 10px; border-radius: 10px;">
+                                                <h4>HOTEL INFO </h4>
+                                                <ul>
+                                                    <li>
+                                                        <h5><strong>Hotel Info:</strong>&nbsp{{Hotel_Info}} </h5>
+                                                    </li>
+                                                    <li>
+                                                        <h5><strong>Room Charge:</strong>&nbsp{{Hotel_Price}} BDT</h5>
+                                                    </li>
+
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-12">
+                                            <div class="price-bottom" style="background: #f0f2f5; padding: 10px; border-radius: 10px;">
+                                                <h4>TRANSPORTATION INFO </h4>
+                                                <ul>
+                                                    <li>
+                                                        <h5><strong>Ticket Price:</strong>&nbsp{{Ticket_Price}} BDT</h5>
+                                                    </li>
+                                                    <li>
+                                                        <h5><strong>Number of Passenger:</strong>&nbsp{{Pessenger}} </h5>
+                                                    </li>
+                                                    <li>
+                                                        <h5><strong>Journey Date:</strong> &nbsp{{Journey_Date}} ({{Time_Slot}})</h5>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                    </div>
+
+
+                                </div>
+                                <div class="col-lg-12 col-md-6 col-12">
+                                    <div class="price-bottom" style="background: #f0f2f5; padding: 10px; border-radius: 10px;">
+
+                                        <h3>Total Amount: {{ Total }} BDT </h3>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <button type="button" data-toggle="modal" data-target="#exampleModalCenter" class="btn btn-success btn-lg btn-block mb-4">PAY NOW</button>
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+
+                <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h3>Total Amount: {{ Total }} BDT </h3>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+
+                                <h4>Enter your Mobile No. </h4>
+
+                                <form action="sendmsg" method="post">
+                                    {% csrf_token %}
+
+                                    <input name="phone" placeholder="+88017XXXXXXXX" type="text" value="+88" class="form-control mb-4">
+                                    <input type="hidden" name="bookedID" value="{{bookedID}}">
+
+                                    <button type="submit" class="btn btn-success btn-lg mb-4 align-items-center btn-block">PROCEED TO PAYMENT</button>
+
+                                </form>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                Please double check your mobile number
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <footer class="site-footer">
+            <div class="upper-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-lg-4 col-md-3 col-sm-12 col-12">
+                            <div class="widget about-widget">
+                                <div class="logo widget-title">
+                                    <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="blog"></a>
+                                </div>
+                                <p>A Tour Management System to make your tour more enjoyable</p>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-3 col-sm-12 col-12">
+                            <div class="widget link-widget">
+                                <div class="widget-title">
+                                    <h3>Quick Links</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+
+                                    <li><a href="blog.html">Explore</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col col-lg-4 col-lg-offset-1 col-md-3 col-sm-12 col-12">
+                            <div class="widget market-widget service-link-widget">
+                                <div class="widget-title">
+                                    <h3>Contact </h3>
+                                </div>
+                                <div class="contact-ft">
+                                    <ul>
+                                        <li>Uttara, Dhaka-1230</li>
+                                        <li><a href="https://spotlisting.itech-theme.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58c8b838aa5928087968c9180cb868a88">ghurefiribangladesh@gmail.com</a>
+                                        </li>
+                                        <li>+88 01622124013</li>
+                                    </ul>
+                                </div>
+                                <ul class="socilal-link">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xl-12">
+                            <p class="copyright"> GhureFiri Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    {% if success_msg %}
+    <script>
+        swal("Done!", "{{success_msg}}", "success");
+    </script>
+    {% endif %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'assets/js/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}" type="text/javascript"></script>
+
+    <script src="{% static 'assets/js/jquery-plugin-collection.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/jquery.slicknav.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/jquery-ui.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/dropify.js' %}"></script>
+    <script src="{% static 'assets/js/form-file-uploads.js' %}"></script>
+
+    <script src="{% static 'assets/js/map.html' %}"></script>
+    <script src="{% static 'assets/js/richmarker.js' %}"></script>
+
+    <script src="{% static 'assets/js/script.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js//rocket-loader.min.js' %}" type="text/javascript"></script>
+
+</html>

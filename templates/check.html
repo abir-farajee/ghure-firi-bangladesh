@@ -1,0 +1,28 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        div {
+            position: absolute;
+            right: 10px;
+            top: 5px
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+    </div>
+    Welcome {{e}}
+    <br><br> {% for time,dat,work in comb_lis %} Date: {{dat}} &nbsp;Work:{{work}}
+    <form action="post_check" method="post">
+        {% csrf_token %}
+        <input type="hidden" name="postid" value="{{time}}">
+        <button type="submit">View</button>
+    </form>
+    <br> {% endfor %}
+</body>
+
+</html>

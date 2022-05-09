@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+
+<html lang="en">
+{% load static %}
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="shortcut icon" type="image/png" href="{% static 'assets/images/icon.png' %}">
+
+    <title>GhureFiri Bangladesh</title>
+
+    <link href="{% static 'assets/css/font-awesome.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/flaticon.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/bootstrap.min.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/animate.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/nice-select.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/owl.carousel.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/odometer-theme-default.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slick.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slick-theme.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/slicknav.min.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/jquery.fancybox.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/jquery-ui.css' %}" rel="stylesheet">
+
+    <link href="{% static 'assets/css/style.css' %}" rel="stylesheet">
+    <link href="{% static 'assets/css/responsive.css' %}" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.css">
+
+
+
+
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <div class="page-loader">
+            <div class="page-loader-inner">
+                <div class="inner"></div>
+            </div>
+        </div>
+
+
+        <header>
+            <div class="header-area" id="sticky-header">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-2 col-md-6 col-5">
+                            <div class="logo">
+                                <a href="/"><img src="{% static 'assets/images/logo/logo.png' %}" alt=""></a>
+                            </div>
+                        </div>
+                        <div class="col-xl-9 col-lg-8 d-none d-lg-block">
+                            <div class="main-menu">
+                                <nav class="nav_mobile_menu">
+                                    <ul>
+                                           <li class="active"><a style="color: #51fc8a;" href="#">{{name}}</a>
+                                        <ul class="submenu">
+                                        
+                                        <li ><a  href="../account/profile">My Profile</a></li>
+                                        <li><a href="../account/mybooking">My Bookings</a></li>
+                                        </ul>
+                                        </li>
+                                        <li class="active"><a href="../explore/explore">Explore</a></li>
+                                        <li class="active"><a href="../package/allpackage">Packages</a></li>
+                                        <li class="active"><a href="../tour/all">Tour</a></li>
+                                        <li><a class="theme-btn" href="../account/logout">LOGOUT</a> </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                        </div>
+
+                        <div class="col-12 d-block d-lg-none col-2">
+                            <div class="mobile_menu"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+
+        <div class="breadcumb-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="breadcumb-wrap">
+                            <h2>Tour Details</h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="pricing-area section-padding">
+            <div class="container">
+
+
+
+
+
+                <div class="row">
+                    <div class="col-lg-12 col-md-6 col-12">
+
+
+                        <div class="pricing-item" style="background: #0d1d35; border-radius: 10px;">
+                            <div class="price-top">
+                                <h3 style="background-color:#ffb619; padding: 10px; border-radius: 10px;">Verify Your Payment</h3>
+                            </div>
+
+
+                            <div class="row">
+                                <div class="col-lg-12 col-md-6 col-12">
+                                    <div class="price-bottom" style="background: #f0f2f5; padding: 10px; border-radius: 10px;">
+                                        <h2></h2>
+                                        <ul>
+                                            <li>
+                                                <h3>We sent a Verification Code to this number: <strong>{{phone}}</strong> </h3>
+                                            </li>
+                                            <li>
+                                                <h5>Check your message inbox and put the verification code here. </h5>
+                                            </li>
+
+                                            <form action="tourpaymentverify" method="post">
+                                                {% csrf_token %}
+                                                <input name="transactionid" placeholder="Transaction ID" required type="text" class="form-control mb-4" style="width: 400px;display: block;margin : 0 auto;">
+                                                <input name="code" placeholder="Verification Code" required type="text" class="form-control mb-4" style="width: 400px;display: block;margin : 0 auto;">
+                                                <input type="hidden" name="bookedID" value="{{bookingid}}">
+
+      
+                                                <button type="submit" style="width: 400px;display: block;margin : 0 auto;" class="btn btn-success btn-lg mb-4 align-items-center btn-block">VERIFY</button>
+
+                                            </form>
+
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+
+
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+
+
+        <footer class="site-footer">
+            <div class="upper-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-lg-4 col-md-3 col-sm-12 col-12">
+                            <div class="widget about-widget">
+                                <div class="logo widget-title">
+                                    <a href="index.html"><img src="{% static 'assets/images/logo/logo.png' %}" alt="blog"></a>
+                                </div>
+                                <p>A Tour Management System to make your tour more enjoyable</p>
+                            </div>
+                        </div>
+                        <div class="col col-lg-4 col-md-3 col-sm-12 col-12">
+                            <div class="widget link-widget">
+                                <div class="widget-title">
+                                    <h3>Quick Links</h3>
+                                </div>
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+
+                                    <li><a href="blog.html">Explore</a></li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div class="col col-lg-4 col-lg-offset-1 col-md-3 col-sm-12 col-12">
+                            <div class="widget market-widget service-link-widget">
+                                <div class="widget-title">
+                                    <h3>Contact </h3>
+                                </div>
+                                <div class="contact-ft">
+                                    <ul>
+                                        <li>Uttara, Dhaka-1230</li>
+                                        <li><a href="https://spotlisting.itech-theme.com/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="e58c8b838aa5928087968c9180cb868a88">ghurefiribangladesh@gmail.com</a>
+                                        </li>
+                                        <li>+88 01622124013</li>
+                                    </ul>
+                                </div>
+                                <ul class="socilal-link">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="lower-footer">
+                <div class="container">
+                    <div class="row">
+                        <div class="col col-xl-12">
+                            <p class="copyright"> GhureFiri Bangladesh</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+    </div>
+
+    <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+
+    <script src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert-dev.js"></script>
+
+
+    {% ifequal type 'success' %}
+    <script>
+        swal({
+            title: "Payment Verified!",
+            text: "Redirecting to your bookings. Please wait....",
+            type: "success",
+            timer: 2000,
+            showConfirmButton: false
+        }, function() {
+            window.location = "../account/mybooking";
+        });
+    </script>
+    {% endifequal %} {% ifequal type 'error' %}
+    <script>
+        swal("{{messg}}", "", "error");
+    </script>
+
+    {% endifequal %}
+
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+
+    <script src="{% static 'assets/js/jquery.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/bootstrap.min.js' %}" type="text/javascript"></script>
+
+    <script src="{% static 'assets/js/jquery-plugin-collection.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/jquery.slicknav.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/jquery-ui.min.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js/dropify.js' %}"></script>
+    <script src="{% static 'assets/js/form-file-uploads.js' %}"></script>
+
+    <script src="{% static 'assets/js/map.html' %}"></script>
+    <script src="{% static 'assets/js/richmarker.js' %}"></script>
+
+    <script src="{% static 'assets/js/script.js' %}" type="text/javascript"></script>
+    <script src="{% static 'assets/js//rocket-loader.min.js' %}" type="text/javascript"></script>
+
+</html>
